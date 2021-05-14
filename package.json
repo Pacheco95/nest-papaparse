@@ -1,10 +1,17 @@
 {
   "name": "nest-papaparse",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
-  "private": true,
-  "license": "UNLICENSED",
+  "private": false,
+  "description": "A simple wrapper for papaparse library with aditional facilities",
+  "author": "Michael Pacheco <mdpgd95@gmail.com>",
+  "license": "MIT",
+  "keywords": ["papaparse", "csv", "parser", "nest", "nestjs"],
+  "homepage": "https://github.com/Pacheco95/nest-papaparse",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pacheco95/nest-papaparse.git"
+  },
+  "main": "index.js",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
