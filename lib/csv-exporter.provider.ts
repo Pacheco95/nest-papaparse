@@ -30,10 +30,7 @@ export class CsvExporterProvider {
     return unparse(records, config);
   }
 
-  public exportDto(
-    records: Record<any, unknown>[],
-    config = defaultExportDtoConfig,
-  ): string {
+  public exportDto<T>(records: T[], config = defaultExportDtoConfig): string {
     if (records.length === 0) {
       return '';
     }
@@ -58,14 +55,14 @@ export class CsvExporterProvider {
     return unparse(objectsToParse, config);
   }
 
-  private getRecordsWithMappedPropertyNames(
-    records: Record<any, unknown>[],
+  private getRecordsWithMappedPropertyNames<T>(
+    records: T[],
     propertyNamesMap: Map<string, string>,
   ) {
     return records.map((record) => {
       const mappedRecord: Record<string, unknown> = {};
       for (const [original, mapped] of propertyNamesMap.entries()) {
-        mappedRecord[mapped] = record[original];
+        mappedRecord[mapped] = (record as any)[original];
       }
       return mappedRecord;
     });
