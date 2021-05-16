@@ -5,7 +5,13 @@
   "description": "A simple wrapper for papaparse library with aditional facilities",
   "author": "Michael Pacheco <mdpgd95@gmail.com>",
   "license": "MIT",
-  "keywords": ["papaparse", "csv", "parser", "nest", "nestjs"],
+  "keywords": [
+    "papaparse",
+    "csv",
+    "parser",
+    "nest",
+    "nestjs"
+  ],
   "homepage": "https://github.com/Pacheco95/nest-papaparse",
   "repository": {
     "type": "git",
