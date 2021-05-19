@@ -1,6 +1,6 @@
 {
   "name": "nest-papaparse",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": false,
   "description": "A simple wrapper for papaparse library with aditional facilities",
   "author": "Michael Pacheco <mdpgd95@gmail.com>",
@@ -19,11 +19,13 @@
   },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "files": ["lib/**/*"],
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format": "prettier --write \"lib/**/*.ts\" \"test/**/*.ts\" \"samples/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
@@ -34,10 +36,10 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "prepare" : "npm run build",
-    "prepublishOnly" : "npm test",
-    "version" : "npm run format && git add -A",
-    "postversion" : "git push && git push --tags"
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test",
+    "version": "npm run format && git add -A",
+    "postversion": "git push && git push --tags"
   },
   "peerDependencies": {
     "@nestjs/common": "^7.6.13",
