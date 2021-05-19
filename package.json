@@ -1,6 +1,6 @@
 {
   "name": "nest-papaparse",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": false,
   "description": "A simple wrapper for papaparse library with aditional facilities",
   "author": "Michael Pacheco <mdpgd95@gmail.com>",
