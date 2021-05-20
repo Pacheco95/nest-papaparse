@@ -26,7 +26,7 @@ describe('Exportable decorator', () => {
     csvExporter = module.get(CsvExporterProvider);
   });
 
-  it('should succeed to export plain objects', function () {
+  it('should succeed to export plain objects', () => {
     const objects = [
       {
         name: 'John',
@@ -42,8 +42,7 @@ describe('Exportable decorator', () => {
     expect(csvExporter.exportPlainObjects(objects)).toBe(expectedCsv);
   });
 
-  it('should succeed to export a DTO', function () {
-    const csvExporter = module.get(CsvExporterProvider);
+  it('should succeed to export a DTO', () => {
     const objects = [
       new TestDTO('John', '(99) 99999-9999'),
       new TestDTO('Ana', '(88) 88888-8888'),
