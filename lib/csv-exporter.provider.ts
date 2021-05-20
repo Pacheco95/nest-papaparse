@@ -27,7 +27,7 @@ export class CsvExporterProvider {
     records: Record<string, unknown>[],
     config?: UnparseConfig,
   ): string {
-    return unparse(records, config);
+    return this.unparse(records, config);
   }
 
   public exportDto<T>(records: T[], config = defaultExportDtoConfig): string {
@@ -37,6 +37,13 @@ export class CsvExporterProvider {
 
     const decoratedPropertiesMap: CSVColumnDecoratedPropertyMap =
       Reflect.getMetadata(CSVColumnMetadataKey, records[0]) ?? {};
+
+    const hasNoDecoratedProperties =
+      Object.keys(decoratedPropertiesMap).length === 0;
+
+    if (hasNoDecoratedProperties) {
+      return '';
+    }
 
     const propertyNamesMap = this.getPropertyNamesMap(decoratedPropertiesMap);
 
@@ -52,7 +59,7 @@ export class CsvExporterProvider {
       fields: mappedPropertiesNames,
     };
 
-    return unparse(objectsToParse, config);
+    return this.unparse(objectsToParse, config);
   }
 
   private getRecordsWithMappedPropertyNames<T>(
@@ -81,5 +88,12 @@ export class CsvExporterProvider {
     }
 
     return propertyNamesMap;
+  }
+
+  private unparse(
+    data: Record<string, unknown>[] | any[][] | UnparseObject,
+    config?: UnparseConfig,
+  ): string {
+    return unparse(data, config);
   }
 }

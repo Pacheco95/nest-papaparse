@@ -55,4 +55,12 @@ describe('Exportable decorator', () => {
       'fullName,phone\r\n' + 'John,(99) 99999-9999\r\n' + 'Ana,(88) 88888-8888';
     expect(csvExporter.exportDto(objects)).toBe(expectedCsv);
   });
+
+  it('should not call unparse if DTO has no decorated properties', () => {
+    class EmptyClass {}
+    const objects = [new EmptyClass()];
+    const sut = jest.spyOn(csvExporter, 'unparse' as keyof typeof csvExporter);
+    csvExporter.exportDto(objects);
+    expect(sut).not.toBeCalled();
+  });
 });
