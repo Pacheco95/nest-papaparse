@@ -18,12 +18,16 @@ describe('Exportable decorator', () => {
   let module: TestingModule;
   let csvExporter: CsvExporterProvider;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     module = await Test.createTestingModule({
       imports: [PapaparseModule],
     }).compile();
 
     csvExporter = module.get(CsvExporterProvider);
+  });
+
+  afterAll(async () => {
+    await module.close();
   });
 
   it('should succeed to export plain objects', () => {
