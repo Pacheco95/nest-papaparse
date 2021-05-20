@@ -1,6 +1,6 @@
 {
   "name": "nest-papaparse",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": false,
   "description": "A simple wrapper for papaparse library with aditional facilities",
   "author": "Michael Pacheco <mdpgd95@gmail.com>",
@@ -19,7 +19,9 @@
   },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "files": ["dist/**/*"],
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
