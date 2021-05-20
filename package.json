@@ -19,9 +19,7 @@
   },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "files": [
-    "lib/**/*"
-  ],
+  "files": ["dist/**/*"],
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
